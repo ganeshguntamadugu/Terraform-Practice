@@ -1,3 +1,12 @@
+#To create ec2-instance using variables
+resource "aws_instance" "instance_terraform" {
+    ami = var.ami_id
+    instance_type = var.instance_id
+    vpc_security_group_ids = [aws_security_group.sg_terraform.id]
+    tags = var.tags
+}
+
+
 #To create Security group using variables
 resource "aws_security_group" "sg_terraform" {
     name = var.sg_name
@@ -26,10 +35,3 @@ resource "aws_security_group" "sg_terraform" {
     tags = var.tags
 }
 
-#To create ec2-instance using variables
-resource "aws_instance" "instance_terraform" {
-    ami = var.ami_id
-    instance_type = var.instance_id
-    vpc_security_group_ids = [aws_security_group.sg_terraform.id]
-    tags = var.tags
-}

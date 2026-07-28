@@ -1,4 +1,15 @@
-#To create Security group
+# To create ec2-instance
+resource "aws_instance" "instance_terraform" {
+    ami = "ami-0220d79f3f480ecf5"
+    instance_type = "t3.micro"
+    vpc_security_group_ids = [aws_security_group.sg_terraform.id]
+    tags = {
+        Name = "terraform"
+    }
+}
+
+
+# To create Security group
 resource "aws_security_group" "sg_terraform" {
     name = "Allow SSH"
     description = "Allow SSH protocal 22"
@@ -26,12 +37,3 @@ resource "aws_security_group" "sg_terraform" {
     }
 }
 
-#To create ec2-instance
-resource "aws_instance" "instance_terraform" {
-    ami = "ami-0220d79f3f480ecf5"
-    instance_type = "t3.micro"
-    vpc_security_group_ids = [aws_security_group.sg_terraform.id]
-    tags = {
-        Name = "terraform"
-    }
-}
