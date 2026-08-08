@@ -6,7 +6,7 @@ resource "aws_instance" "ansible" {
     ami = "ami-0220d79f3f480ecf5"
     instance_type = "t3.micro"
     vpc_security_group_ids = [aws_security_group.sg_terraform.id]
-    tags = merge ( #This is function
+    tags = merge( #This is function
         var.common_tags,
         {
             Name = var.instance_names[count.index] #Here it will create 3 different instance using count.index
