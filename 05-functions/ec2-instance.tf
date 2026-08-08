@@ -37,7 +37,7 @@ resource "aws_security_group" "sg_terraform" {
         cidr_blocks = ["0.0.0.0/0"]
     }
 
-    tags = merge ( #This is function
+    tags = merge( #This is function
         var.common_tags,
         {
             Name = "terraform-practice"
