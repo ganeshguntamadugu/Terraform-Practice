@@ -23,7 +23,7 @@ resource "aws_security_group" "sg_terraform" {
     }
 
     #outbound rule
-    #below are called ingress block in terraform
+    #below are called egress block in terraform
     egress{
         description = var.egress_descr
         from_port = var.egress_port_number
