@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket = "gangs-remote-state"
-    key = "remote-state-demo"
+    key = "remote-state-demo" #Key should not be same for each file
     region = "us-east-1"
     dynamodb_table = "gangs_locking"
   }
