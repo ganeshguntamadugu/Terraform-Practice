@@ -7,10 +7,12 @@ resource "aws_instance" "instance_terraform" {
         Name = "terraform"
     }
 
+    #Local
     provisioner "local-exec" {
         command = "echo ${self.private_ip} ${self.public_ip} > IPs.txt"
     }
 
+    #Remote
     connection {
         type     = "ssh"
         user     = "ec2-user"
